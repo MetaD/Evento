@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+	<item android:id="@+id/parse" android:title="From Image"></item>
+	<item android:id="@+id/type" android:title="Type"></item>
+    
+
+</menu>
