@@ -6,6 +6,7 @@ import com.summer.evento.DayView.ListViewItem;
 
 import android.app.Activity;  
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;  
 import android.view.View;  
 import android.view.ViewGroup;  
@@ -47,6 +48,13 @@ public class CustomListViewAdapter extends BaseAdapter
 
     @Override  
     public View getView(final int position, View convertView, ViewGroup parent) {
+    	/*View view = (View) items.get(position);
+    	if (position % 2 == 1) {
+    	    view.setBackgroundColor(Color.BLUE);  
+    	} else {
+    	    view.setBackgroundColor(Color.CYAN);  
+    	}*/
+
     	ListViewItem item = items.get(position);
     	
     	View vi = convertView;
@@ -60,6 +68,11 @@ public class CustomListViewAdapter extends BaseAdapter
         txtTitle.setText(item.title);
         txtLocation.setText(item.location);
         txtTime.setText(item.startTime);
+        if (position % 2 == 1) {
+        	vi.setBackgroundColor(Color.rgb(255, 250, 212));
+        } else {
+        	vi.setBackgroundColor(Color.WHITE);
+        }
         
         return vi;  
     }

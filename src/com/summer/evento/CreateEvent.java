@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -39,11 +40,13 @@ public class CreateEvent extends Activity implements View.OnClickListener{
     Calendar calendar=Calendar.getInstance();
     TextView dateLabel;
     TextView stimeLabel, etimeLabel;
-    Button btn_date;
-    Button btn_stime, btn_etime;
 
     EditText location;
     EditText description;
+    
+    CheckBox add_local;
+    CheckBox add_database;
+    
     Button btn_create;
 
     @Override
@@ -53,9 +56,8 @@ public class CreateEvent extends Activity implements View.OnClickListener{
 
         dateLabel = (TextView)findViewById(R.id.date);
         dateLabel.setText(format_date.format(System.currentTimeMillis()));
-        btn_date=(Button)findViewById(R.id.datePicker);
 
-        btn_date.setOnClickListener(new View.OnClickListener() {
+        dateLabel.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
                 new DatePickerDialog(CreateEvent.this, date, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
@@ -65,9 +67,8 @@ public class CreateEvent extends Activity implements View.OnClickListener{
 
         stimeLabel = (TextView) findViewById(R.id.startTime);
         stimeLabel.setText(format_stime.format(System.currentTimeMillis()));
-        btn_stime = (Button) findViewById(R.id.startTimePicker);
 
-        btn_stime.setOnClickListener(new View.OnClickListener() {
+        stimeLabel.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
                 new TimePickerDialog(CreateEvent.this, stime,
@@ -77,9 +78,8 @@ public class CreateEvent extends Activity implements View.OnClickListener{
 
         etimeLabel = (TextView) findViewById(R.id.endTime);
         etimeLabel.setText(format_etime.format(System.currentTimeMillis() + 3600000));
-        btn_etime = (Button) findViewById(R.id.endTimePicker);
 
-        btn_etime.setOnClickListener(new View.OnClickListener() {
+        etimeLabel.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
                 new TimePickerDialog(CreateEvent.this, etime,
@@ -89,6 +89,12 @@ public class CreateEvent extends Activity implements View.OnClickListener{
 
         location = (EditText)findViewById(R.id.eventLocation);
         description = (EditText)findViewById(R.id.eventDescription);
+        
+        add_local = (CheckBox)findViewById(R.id.checkBox_add_local);
+        add_database = (CheckBox)findViewById(R.id.checkBox_add_public);
+        add_local.setChecked(true);
+        add_database.setChecked(true);
+        
         btn_create = (Button) findViewById(R.id.createButton);
 
         // click create event
@@ -156,16 +162,25 @@ public class CreateEvent extends Activity implements View.OnClickListener{
                         .putExtra(Events.EVENT_LOCATION, eventLocation)
                         .putExtra(Events.AVAILABILITY, Events.AVAILABILITY_BUSY);
 
-                // Push to Parse database
-                ParseObject event = new ParseObject("Event");
-                event.put("Title", eventName);
-                event.put("Location", eventLocation);
-                event.put("startTime", beginTime.getTime());
-                event.put("endTime", endTime.getTime());
-                event.put("Description", eventDescription);
-                event.saveInBackground();
+                if (add_database.isChecked()) {
+                    // Push to Parse database
+                    ParseObject event = new ParseObject("Event");
+                    event.put("Title", eventName);
+                    event.put("Location", eventLocation);
+                    event.put("startTime", beginTime.getTime());
+                    event.put("endTime", endTime.getTime());
+                    event.put("Description", eventDescription);
+                    event.saveInBackground();
+                	Toast.makeText(getApplicationContext(), "Public event has been added!", Toast.LENGTH_LONG).show();
+                }
 
-                startActivity(intent);
+                if (add_local.isChecked()) {
+                    startActivity(intent);
+                }
+                
+                if (!add_database.isChecked() && !add_local.isChecked()) {
+                	Toast.makeText(getApplicationContext(), "Please choose at least one calendar", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

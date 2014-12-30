@@ -22,43 +22,53 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int logo=0x7f020001;
+        public static final int background=0x7f020000;
+        public static final int date=0x7f020001;
+        public static final int description=0x7f020002;
+        public static final int event=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int location=0x7f020005;
+        public static final int logo=0x7f020006;
+        public static final int time=0x7f020007;
     }
     public static final class id {
-        public static final int action_settings=0x7f08001e;
-        public static final int btn_create_event=0x7f080017;
-        public static final int btn_select_photo=0x7f08000c;
-        public static final int btn_take_photo=0x7f08000b;
-        public static final int btn_whats_happen=0x7f080018;
+        public static final int action_settings=0x7f080022;
+        public static final int btn_create_event=0x7f08001c;
+        public static final int btn_select_photo=0x7f080011;
+        public static final int btn_take_photo=0x7f080010;
+        public static final int btn_whats_happen=0x7f08001d;
         public static final int calendarView=0x7f080000;
-        public static final int confirm=0x7f08000e;
-        public static final int createButton=0x7f08000a;
-        public static final int date=0x7f080003;
-        public static final int datePicker=0x7f080004;
-        public static final int detail_date=0x7f080012;
-        public static final int detail_description=0x7f080015;
-        public static final int detail_location=0x7f080014;
-        public static final int detail_time=0x7f080013;
-        public static final int detail_title=0x7f080011;
-        public static final int endTime=0x7f080007;
-        public static final int endTimePicker=0x7f080008;
-        public static final int eventDescription=0x7f080009;
-        public static final int eventList=0x7f080010;
-        public static final int eventLocation=0x7f080002;
-        public static final int eventName=0x7f080001;
-        public static final int imageView1=0x7f080019;
-        public static final int noEventTxt=0x7f08000f;
-        public static final int parse=0x7f08001f;
-        public static final int relativeLayout1=0x7f08001a;
-        public static final int result_text=0x7f08000d;
-        public static final int startTime=0x7f080005;
-        public static final int startTimePicker=0x7f080006;
-        public static final int sync=0x7f080016;
-        public static final int txtLocation=0x7f08001c;
-        public static final int txtTime=0x7f08001d;
-        public static final int txtTitle=0x7f08001b;
-        public static final int type=0x7f080020;
+        public static final int checkBox_add_local=0x7f08000d;
+        public static final int checkBox_add_public=0x7f08000e;
+        public static final int confirm=0x7f080013;
+        public static final int createButton=0x7f08000f;
+        public static final int date=0x7f080006;
+        public static final int dateImage=0x7f080005;
+        public static final int descriptionImage=0x7f08000b;
+        public static final int detail_date=0x7f080017;
+        public static final int detail_description=0x7f08001a;
+        public static final int detail_location=0x7f080019;
+        public static final int detail_time=0x7f080018;
+        public static final int detail_title=0x7f080016;
+        public static final int endTime=0x7f08000a;
+        public static final int endTimeImage=0x7f080009;
+        public static final int eventDescription=0x7f08000c;
+        public static final int eventImage=0x7f080001;
+        public static final int eventList=0x7f080015;
+        public static final int eventLocation=0x7f080004;
+        public static final int eventName=0x7f080002;
+        public static final int locationImage=0x7f080003;
+        public static final int noEventTxt=0x7f080014;
+        public static final int parse=0x7f080023;
+        public static final int relativeLayout1=0x7f08001e;
+        public static final int result_text=0x7f080012;
+        public static final int startTime=0x7f080008;
+        public static final int startTimeImage=0x7f080007;
+        public static final int sync=0x7f08001b;
+        public static final int txtLocation=0x7f080020;
+        public static final int txtTime=0x7f080021;
+        public static final int txtTitle=0x7f08001f;
+        public static final int type=0x7f080024;
     }
     public static final class layout {
         public static final int activity_browse_events=0x7f030000;
@@ -79,31 +89,31 @@ public final class R {
         public static final int main=0x7f070006;
     }
     public static final class string {
+        public static final int action_create=0x7f050003;
         public static final int action_settings=0x7f050002;
         public static final int app_name=0x7f050000;
         public static final int calendarSyncBtn=0x7f050017;
+        public static final int checkBox_add_local=0x7f05000b;
+        public static final int checkBox_add_public=0x7f05000c;
         public static final int confirm=0x7f050015;
         public static final int createBtn=0x7f05000f;
         public static final int create_button=0x7f050001;
-        public static final int dateBtn=0x7f050008;
-        public static final int dateTextview=0x7f050007;
-        public static final int endTimeBtn=0x7f05000c;
-        public static final int endTimeTextview=0x7f05000b;
+        public static final int dateTextview=0x7f050008;
+        public static final int endTimeTextview=0x7f05000a;
         public static final int eventDescriptHint=0x7f05000e;
         public static final int eventDescriptTextView=0x7f05000d;
-        public static final int eventLocation=0x7f050006;
-        public static final int eventName=0x7f050005;
+        public static final int eventLocation=0x7f050007;
+        public static final int eventName=0x7f050006;
         public static final int select_picture_btn=0x7f050012;
-        public static final int startTimeBtn=0x7f05000a;
         public static final int startTimeTextview=0x7f050009;
         public static final int take_picture_btn=0x7f050011;
         public static final int text_from_img=0x7f050014;
         public static final int title_activity_browse_events=0x7f050013;
-        public static final int title_activity_create_event=0x7f050004;
+        public static final int title_activity_create_event=0x7f050005;
         public static final int title_activity_create_event_from_img=0x7f050010;
         public static final int title_activity_day_view=0x7f050016;
         public static final int title_activity_event_details=0x7f050018;
-        public static final int whats_happen=0x7f050003;
+        public static final int whats_happen=0x7f050004;
     }
     public static final class style {
         /** 

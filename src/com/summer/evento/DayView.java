@@ -18,11 +18,13 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -65,7 +67,8 @@ public class DayView extends Activity {
         		no_event.setText("Currently No Events Scheduled");
             }
             else {
-    			for (final ParseObject element : eventList) {
+            	int i = 0;
+    			for (final ParseObject element : eventList) {   				
     	            items.add(new ListViewItem() {{
     	    			title = element.getString("Title");
     	    			location = element.getString("Location");
@@ -73,8 +76,12 @@ public class DayView extends Activity {
     	    		}});
     	         }
     			
+    			
+    			
     			CustomListViewAdapter adapter = new CustomListViewAdapter(this, items);
     			listView.setAdapter(adapter);
+    			
+    			
 
     			listView.setOnItemClickListener(new OnItemClickListener() {
     				   @Override

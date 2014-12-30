@@ -60,7 +60,7 @@ public class Parse {
 	
 	public static String[] parseTime(String recognizedText) {
 		String[] times = new String[2];
-		Pattern p_time = Pattern.compile("[0-9]{1,2}\\s*[:.\\s]{1,2}\\s*[0-9]{0,2}[AaPp\\s]{1}");
+		Pattern p_time = Pattern.compile("[0-9]{1,2}\\s*[:.]{1}\\s*[0-9]{0,2}[AaPp\\s]{1}");
 		Matcher m_time = p_time.matcher(recognizedText);
 		for (int i = 0; m_time.find() && i < 2; ++i) {
 			times[i] = m_time.group().replaceAll("[:.]{1}", ":").replaceAll("\\s+", "");
